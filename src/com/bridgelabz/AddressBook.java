@@ -14,6 +14,7 @@ public class AddressBook {
         System.out.println("zip code: "+contact.getZipCode());
         System.out.println("Email: "+contact.getEmail());
         System.out.println("Phone number: "+contact.getPhoneNumber());
+        System.out.println("Contact created Successfully.......");
 
     }
 
