@@ -33,6 +33,7 @@ public class AddressBook {
         //System.out.println("Contact created Successfully.......");
         return contact;
     }
+
     public void addContact() {
         Contact contact = createContact();
         System.out.println(contact);
@@ -83,6 +84,22 @@ public class AddressBook {
             } else {
                 System.out.println("Enter valid name: ");
 
+            }
+        }
+    }
+
+    public void deleteDetails() {
+
+        System.out.println("Confirm the first name to delete contacts: ");
+
+        String ConfirmName = scanner.next();
+        for (int i = 0; i < contactList.size(); i++) {
+            if (contactList.get(i).getFirstName().equals(ConfirmName)) {
+                contactList.remove(i);
+                System.out.println("Contact Deleted Successfully.....");
+                System.out.println("List after removing details: " + contactList);
+            } else {
+                System.out.println("Enter valid first name: ");
             }
         }
     }
