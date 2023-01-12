@@ -11,7 +11,7 @@ public class AddressBookMain {
         Scanner sc = new Scanner(System.in);
         boolean flag = true;
         while (flag) {
-            System.out.println("\n1.Add Contact \n2.Exit");
+            System.out.println("\n1.Add Contact \n2.Edit contact \n3.Exit");
             System.out.println("Enter choice: ");
             int choice = sc.nextInt();
 
@@ -20,6 +20,9 @@ public class AddressBookMain {
                     addressBook.addContact();
                     break;
                 case 2:
+                    addressBook.editContact();
+                    break;
+                case 3:
                     flag = false;
                     System.out.println("Exited Successfully........");
                     break;

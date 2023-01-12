@@ -1,8 +1,12 @@
 package com.bridgelabz;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class AddressBook {
+
+    List<Contact> contactList = new ArrayList<>();
 
     Scanner scanner = new Scanner(System.in);
 
@@ -32,6 +36,54 @@ public class AddressBook {
     public void addContact() {
         Contact contact = createContact();
         System.out.println(contact);
+        contactList.add(contact);
         System.out.println("Contact added Successfully...........");
+    }
+
+    public void editContact() {
+        System.out.println("Edit contact by First name: ");
+        String name = scanner.next();
+        for (int i = 0; i < contactList.size(); i++) {
+            if (contactList.get(i).getFirstName().equals(name)) {
+                System.out.println("Edit by: \n1.last name\n2.Address \n3.City \n4.State \n5.Zip code \n6.Email \n7.Phone number");
+                int edit = scanner.nextInt();
+
+                switch (edit) {
+                    case 1:
+                        System.out.println("Enter last name: ");
+                        contactList.get(i).setLastName(scanner.next());
+                        break;
+                    case 2:
+                        System.out.println("Enter address: ");
+                        contactList.get(i).setAddress(scanner.next());
+                        break;
+                    case 3:
+                        System.out.println("Enter city: ");
+                        contactList.get(i).setCity(scanner.next());
+                        break;
+                    case 4:
+                        System.out.println("Enter State: ");
+                        contactList.get(i).setState(scanner.next());
+                        break;
+                    case 5:
+                        System.out.println("Enter Zip code: ");
+                        contactList.get(i).setZipCode(scanner.next());
+                        break;
+                    case 6:
+                        System.out.println("Enter Email: ");
+                        contactList.get(i).setEmail(scanner.next());
+                        break;
+                    case 7:
+                        System.out.println("Enter phone number: ");
+                        contactList.get(i).setPhoneNumber(scanner.next());
+                        break;
+                }
+                System.out.println("Edited List is....");
+                System.out.println(contactList);
+            } else {
+                System.out.println("Enter valid name: ");
+
+            }
+        }
     }
 }
