@@ -10,6 +10,7 @@ public class AddressBook {
 
     Scanner scanner = new Scanner(System.in);
 
+    //UC1
     public Contact createContact() {
 
         Contact contact = new Contact();
@@ -34,12 +35,14 @@ public class AddressBook {
         return contact;
     }
 
+    //UC2
     public void addContact() {
         Contact contact = createContact();
         System.out.println(contact);
         contactList.add(contact);
         System.out.println("Contact added Successfully...........");
     }
+    //UC3
 
     public void editContact() {
         System.out.println("Edit contact by First name: ");
@@ -87,6 +90,7 @@ public class AddressBook {
             }
         }
     }
+    //UC4
 
     public void deleteDetails() {
 
@@ -100,6 +104,16 @@ public class AddressBook {
                 System.out.println("List after removing details: " + contactList);
             } else {
                 System.out.println("Enter valid first name: ");
+            }
+        }
+    }
+
+    void displayContact() {
+        if (contactList.isEmpty()) {
+            System.out.println("No contacts to display");
+        } else {
+            for (Contact contact : contactList) {
+                System.out.println(contactList);
             }
         }
     }
