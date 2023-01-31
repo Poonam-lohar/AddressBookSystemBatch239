@@ -86,14 +86,14 @@ public class Contact {
     @Override
     public String toString() {
         return "Contact{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", address='" + address + '\'' +
-                ", city='" + city + '\'' +
-                ", state='" + state + '\'' +
-                ", zipCode='" + zipCode + '\'' +
-                ", email='" + email + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
+                "\n firstName='" + firstName + '\'' +
+                ",\n lastName='" + lastName + '\'' +
+                ",\n address='" + address + '\'' +
+                ",\n city='" + city + '\'' +
+                ",\n state='" + state + '\'' +
+                ",\n zipCode='" + zipCode + '\'' +
+                ",\n email='" + email + '\'' +
+                ",\n phoneNumber='" + phoneNumber + '\'' +
                 '}';
     }
 }
