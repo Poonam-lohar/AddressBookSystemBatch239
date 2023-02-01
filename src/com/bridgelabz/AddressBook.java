@@ -125,6 +125,17 @@ public class AddressBook {
             }
         }
     }
+    public void duplicateCheck(String firstName) {
+        for (int k=0;k < contactList.size();k++){
+            String contactName = contactList.get(k).getFirstName();
+            if (firstName.equals(contactName)) {
+                System.out.println("This Contact is Present.....");
+            } else {
+                System.out.println("Add this Contact....");
+                break;
+            }
+        }
+    }
 
     public void createAddressBook() {
         int option = 1;
@@ -227,13 +238,5 @@ public class AddressBook {
         }
     }
 }
-    //void displayContact(ArrayList addressBook) {
 
-        //String addressBookName = scanner.next();
-        //addressBookList.put(addressBookName, contactList);
-        //System.out.println(addressBookList);
-        //System.out.println("Contacts: ");
-       // for (Object p : addressBook) {
-         //   Contact contact = (Contact) p;
-           // System.out.println(contact);
 
