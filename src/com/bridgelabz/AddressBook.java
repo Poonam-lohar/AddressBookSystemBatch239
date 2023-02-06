@@ -2,7 +2,9 @@ package com.bridgelabz;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class AddressBook {
 
@@ -13,9 +15,6 @@ public class AddressBook {
 
     Scanner scanner = new Scanner(System.in);
 
-    static ArrayList<Contact> currentAddressBook;
-
-    static String currentAddressBookName;
 
     //UC1
     public Contact createContact() {
@@ -125,8 +124,9 @@ public class AddressBook {
             }
         }
     }
+
     public void duplicateCheck(String firstName) {
-        for (int k=0;k < contactList.size();k++){
+        for (int k = 0; k < contactList.size(); k++) {
             String contactName = contactList.get(k).getFirstName();
             if (firstName.equals(contactName)) {
                 System.out.println("This Contact is Present.....");
@@ -235,6 +235,36 @@ public class AddressBook {
                     System.out.println("Exited From Address Book Management System");
                     option = 0;
             }
+        }
+    }
+    public List<Contact> searchByCity(String city){
+        return contactList.stream().filter(contact -> contact.getCity().equals(city)).collect(Collectors.toList());
+    }
+    public List<Contact> searchByState(String state){
+        return contactList.stream().filter(contact -> contact.getState().equals(state)).collect(Collectors.toList());
+    }
+
+    public void searchByOptions(){
+
+        System.out.println("\n1.search by city \n2.search by State \n3.Exit");
+        System.out.println("Your choice:");
+        int choice = scanner.nextInt();
+        switch (choice){
+            case 1:
+                System.out.println("Enter city name: ");
+                String city = scanner.next();
+                contactList.forEach(contact->searchByCity(city).forEach(System.out::println));
+                break;
+            case 2:
+                System.out.println("Enter State name: ");
+                String state = scanner.next();
+                contactList.forEach(contact->searchByState(state).forEach(System.out::println));
+                break;
+            case 3:
+                System.out.println("Exited....");
+                break;
+            default:
+                System.out.println("Invalid Choice.....");
         }
     }
 }
