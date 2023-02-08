@@ -1,23 +1,19 @@
 package com.bridgelabz;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class AddressBook {
 
-    ArrayList<Contact> contactList = new ArrayList<Contact>();
+    static ArrayList<Contact> contactList = new ArrayList<Contact>();
     HashMap<String, ArrayList<Contact>> hashmap = new HashMap<>();
 
     static AddressBook addressBook = new AddressBook();
 
-    Scanner scanner = new Scanner(System.in);
-
+    static Scanner scanner = new Scanner(System.in);
 
     //UC1
-    public Contact createContact() {
+    public static Contact createContact() {
 
         Contact contact = new Contact();
 
@@ -51,7 +47,7 @@ public class AddressBook {
     }
     //UC3
 
-    public void editContact() {
+    public static void editContact() {
         System.out.println("Edit contact by First name: ");
         String name = scanner.next();
         for (int i = 0; i < contactList.size(); i++) {
@@ -99,7 +95,7 @@ public class AddressBook {
     }
     //UC4
 
-    public void deleteContact() {
+    public static void deleteContact() {
 
         System.out.println("Confirm the first name to delete contacts: ");
 
@@ -138,6 +134,7 @@ public class AddressBook {
     }
 
     public void createAddressBook() {
+
         int option = 1;
         while (option == 1) {
             System.out.println("Choose an Option According To Your Preference: ");
@@ -147,10 +144,10 @@ public class AddressBook {
                 //Switch Case For Creating New Address Book
                 case 1:
                     System.out.println("Enter the name of address book: ");
-                    String address_name = scanner.next();
+                    String addressBook_name = scanner.next();
 
-                    // condition to check for uniqueness of address book.
-                    if (hashmap.containsKey(address_name)) {
+                    //condition to check for uniqueness of address book.
+                    if (hashmap.containsKey(addressBook_name)) {
                         System.out.println("Address book name exits, enter different name");
                         break;
                     }
@@ -179,7 +176,8 @@ public class AddressBook {
                                 System.out.println("Exited From Address Book");
                                 break;
                         }
-                        hashmap.put(address_name, contactList);
+
+                        hashmap.put(addressBook_name, contactList);
                         System.out.println(hashmap);
                         choice = 0;
                     }
@@ -237,34 +235,55 @@ public class AddressBook {
             }
         }
     }
-    public List<Contact> searchByCity(String city){
+
+    public List<Contact> searchByCity(String city) {
         return contactList.stream().filter(contact -> contact.getCity().equals(city)).collect(Collectors.toList());
     }
-    public List<Contact> searchByState(String state){
+
+    public List<Contact> searchByState(String state) {
         return contactList.stream().filter(contact -> contact.getState().equals(state)).collect(Collectors.toList());
     }
 
-    public void searchByOptions(){
+
+    public void searchByOptions() {
 
         System.out.println("\n1.search by city \n2.search by State \n3.Exit");
         System.out.println("Your choice:");
         int choice = scanner.nextInt();
-        switch (choice){
+        switch (choice) {
             case 1:
                 System.out.println("Enter city name: ");
                 String city = scanner.next();
-                contactList.forEach(contact->searchByCity(city).forEach(System.out::println));
+                contactList.forEach(contact -> searchByCity(city).forEach(System.out::println));
                 break;
             case 2:
                 System.out.println("Enter State name: ");
                 String state = scanner.next();
-                contactList.forEach(contact->searchByState(state).forEach(System.out::println));
+                contactList.forEach(contact -> searchByState(state).forEach(System.out::println));
                 break;
             case 3:
                 System.out.println("Exited....");
                 break;
             default:
                 System.out.println("Invalid Choice.....");
+        }
+    }
+    public void countByOptions(){
+        System.out.println("\n1.Count by city \n2.Count by State \n3.Exit");
+        int choice = scanner.nextInt();
+        switch (choice) {
+            case 1:
+                Map<String,Long> countCity = contactList.stream().collect(Collectors.groupingBy(e -> e.getCity(),Collectors.counting()));
+                System.out.println(countCity + "\n");
+                break;
+            case 2:
+                Map<String,Long> countState = contactList.stream().collect(Collectors.groupingBy(e -> e.getState(),Collectors.counting()));
+                System.out.println(countState + "\n");
+                break;
+            case 3:
+                return;
+            default:
+                System.out.println("Invalid...");
         }
     }
 }
