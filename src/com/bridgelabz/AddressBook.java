@@ -286,6 +286,20 @@ public class AddressBook {
                 System.out.println("Invalid...");
         }
     }
+    void sortContact() {
+        List<Contact> allContacts = getAllContacts();
+        List<Contact> sortedContact;
+        System.out.println("Sort by name: ");
+        sortedContact = allContacts.stream().sorted((x, y) -> x.getFirstName().compareTo(y.getFirstName())).collect(Collectors.toList());
+        sortedContact.forEach(x -> System.out.println(x));
+    }
+         List<Contact> getAllContacts(){
+        List<Contact> allContacts = new ArrayList<>();
+        for(String key : hashmap.keySet()) {
+            allContacts.addAll(hashmap.get(key));
+        }
+    return allContacts;
+    }
 }
 
 

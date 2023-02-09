@@ -15,7 +15,7 @@ public class AddressBookMain {
         Scanner sc = new Scanner(System.in);
         boolean flag = true;
         while (flag) {
-            System.out.println("\n1.Add Contact \n2.Edit contact \n3.Delete contact \n4.Create Address Book \n5.Duplicate check \n6.Search by Option \n7.Count by Options \n8.Display Contact \n9.Exit");
+            System.out.println("\n1.Add Contact \n2.Edit contact \n3.Delete contact \n4.Create Address Book \n5.Duplicate check \n6.Search by Option \n7.Count by Options \n8.Sort Contact by name \n9.Display Contact \n10.Exit");
             System.out.println("Enter choice: ");
             int choice = sc.nextInt();
 
@@ -44,9 +44,12 @@ public class AddressBookMain {
                     addressBook.countByOptions();
                     break;
                 case 8:
-                    addressBook.displayContact();
+                    addressBook.sortContact();
                     break;
                 case 9:
+                    addressBook.displayContact();
+                    break;
+                case 10:
                     flag = false;
                     System.out.println("Exited Successfully........");
                     break;
