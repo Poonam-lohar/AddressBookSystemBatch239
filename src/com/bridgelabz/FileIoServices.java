@@ -10,7 +10,9 @@ import static com.bridgelabz.AddressBook.contactList;
 
 public class FileIoServices {
 
-    private static final String FILE_PATH = "C:\\Users\\Suraj\\IdeaProjects\\add\\Batch239\\AddressBookSystemBatch239\\src\\com\\bridgelabz\\AddressBook.txt";
+    //private static final String FILE_PATH = "C:\\Users\\Suraj\\IdeaProjects\\add\\Batch239\\AddressBookSystemBatch239\\src\\com\\bridgelabz\\AddressBook.txt";
+
+    private static final String FILE_PATH = "C:\\Users\\Suraj\\IdeaProjects\\add\\Batch239\\AddressBookSystemBatch239\\src\\com\\bridgelabz\\AddressBook.csv";
     public void writeData() {
         try {
             FileWriter fileWriter = new FileWriter(FILE_PATH);
