@@ -1,0 +1,9 @@
+[Contact{
+ firstName='p',
+ lastName='l',
+ address='s',
+ city='k',
+ state='m',
+ zipCode='765432',
+ email='pokm',
+ phoneNumber='9089786787'}]

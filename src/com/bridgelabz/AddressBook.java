@@ -44,6 +44,7 @@ public class AddressBook {
         System.out.println(contact);
         contactList.add(contact);
         System.out.println("Contact added Successfully...........");
+        System.out.println("**********************************************************");
     }
     //UC3
 
@@ -268,16 +269,17 @@ public class AddressBook {
                 System.out.println("Invalid Choice.....");
         }
     }
-    public void countByOptions(){
+
+    public void countByOptions() {
         System.out.println("\n1.Count by city \n2.Count by State \n3.Exit");
         int choice = scanner.nextInt();
         switch (choice) {
             case 1:
-                Map<String,Long> countCity = contactList.stream().collect(Collectors.groupingBy(e -> e.getCity(),Collectors.counting()));
+                Map<String, Long> countCity = contactList.stream().collect(Collectors.groupingBy(e -> e.getCity(), Collectors.counting()));
                 System.out.println(countCity + "\n");
                 break;
             case 2:
-                Map<String,Long> countState = contactList.stream().collect(Collectors.groupingBy(e -> e.getState(),Collectors.counting()));
+                Map<String, Long> countState = contactList.stream().collect(Collectors.groupingBy(e -> e.getState(), Collectors.counting()));
                 System.out.println(countState + "\n");
                 break;
             case 3:
@@ -286,6 +288,7 @@ public class AddressBook {
                 System.out.println("Invalid...");
         }
     }
+
     void sortContact() {
         List<Contact> allContacts = getAllContacts();
         List<Contact> sortedContact;
@@ -315,13 +318,12 @@ public class AddressBook {
                 break;
         }
     }
-         List<Contact> getAllContacts(){
+
+    List<Contact> getAllContacts() {
         List<Contact> allContacts = new ArrayList<>();
-        for(String key : hashmap.keySet()) {
+        for (String key : hashmap.keySet()) {
             allContacts.addAll(hashmap.get(key));
         }
-    return allContacts;
+        return allContacts;
     }
 }
-
-

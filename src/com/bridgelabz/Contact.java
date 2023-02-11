@@ -16,7 +16,6 @@ public class Contact {
         this.zipCode = zipCode;
         this.email = email;
         this.phoneNumber = phoneNumber;
-
     }
 
     public String getCity() {
